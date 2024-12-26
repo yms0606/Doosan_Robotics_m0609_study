@@ -7,15 +7,19 @@ These experiments deepened our understanding of the collaborative robot's mechan
 
 # ✨ Key Features
 **Real-World Simulation and Precision Task Execution**
+
 Conducted real-world-like simulations with tasks such as gear assembly, material handling, Jenga, and stacking cups.
 
-Versatile Control Techniques
+**Versatile Control Techniques**
+
 Applied Compliance and Force Control for precise task execution and seamless handling of complex workflows.
 
-Optimization
+**Optimization**
+
 Implemented algorithms to estimate paths while analyzing singularity locations caused by joint angles and devising strategies to avoid them.
 
-Advanced Path Planning Algorithms
+**Advanced Path Planning Algorithms**
+
 Designed optimal movements using not only linear and curved paths but also spline curves, achieving smooth and efficient robot operations
 
 🎥 Demo Video
