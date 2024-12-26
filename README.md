@@ -13,6 +13,15 @@ Easily set up task paths by manually moving the robotic arm.
 
 🎥 Demo Video
 
+pattern pallet
+https://github.com/user-attachments/assets/463ea415-badf-4a71-8427-b23b17c9579a
+
+gear assembling
+https://github.com/user-attachments/assets/2957ad32-46ed-404c-880a-b73616b3771d
+
+
+
+
 
 📋 Prerequisites
 🤖 Doosan M0609 Collaborative Robot
