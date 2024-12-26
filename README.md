@@ -6,7 +6,7 @@ These experiments deepened our understanding of the collaborative robot's mechan
 
 
 # ✨ Key Features
-Real-World Simulation and Precision Task Execution
+**Real-World Simulation and Precision Task Execution**
 Conducted real-world-like simulations with tasks such as gear assembly, material handling, Jenga, and stacking cups.
 
 Versatile Control Techniques
