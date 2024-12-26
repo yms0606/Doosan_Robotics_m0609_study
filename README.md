@@ -37,8 +37,8 @@ https://github.com/user-attachments/assets/2957ad32-46ed-404c-880a-b73616b3771d
 
 
 
-📋 Prerequisites
+# 📋 Prerequisites
 🤖 Doosan M0609 Collaborative Robot
 💻 DART Platform SDK
-🐍 Python 3.8+
+🐍 Python
 🐾 ROS 2 Humble
