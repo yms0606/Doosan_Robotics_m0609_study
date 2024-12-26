@@ -22,7 +22,8 @@ Implemented algorithms to estimate paths while analyzing singularity locations c
 
 Designed optimal movements using not only linear and curved paths but also spline curves, achieving smooth and efficient robot operations
 
-🎥 Demo Video
+
+# 🎥 Demo Video
 
 pattern pallet
 
