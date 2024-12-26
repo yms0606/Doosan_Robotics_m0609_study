@@ -1,0 +1,22 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/visualservoing/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/rokey/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/example/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/dsr_tests/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/dsr_bringup2/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/dsr_msgs2/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/visualservoing/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/rokey/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/example/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/dsr_tests/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/dsr_bringup2/lib/python3.10/site-packages",
+        "/home/juna/doosan_boot_work/collaboration2_ws/install/dsr_msgs2/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
