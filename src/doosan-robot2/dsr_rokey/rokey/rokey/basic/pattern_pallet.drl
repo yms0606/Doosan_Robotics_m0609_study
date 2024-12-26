@@ -1,0 +1,62 @@
+def grip():
+    set_digital_output(1, ON)
+    set_digital_output(2, OFF)
+    wait_digital_input(1, ON)
+def ungrip():
+    set_digital_output(2, ON)
+    set_digital_output(1, OFF)
+    wait_digital_input(2, ON)
+def close():
+    set_digital_output(1, ON)
+    set_digital_output(2, OFF)
+# pallet_1_pos
+pallet_1_pos1 = posx(449.05, -107.61, 31.35, 167.5, 179.16, 167.52)
+pallet_1_pos2 = posx(449.05, -2.29, 31.35, 167.5, 179.16, 167.52)
+pallet_1_pos3 = posx(348.37, -2.29, 31.35, 161.78, 179.32, 161.65)
+pallet_1_pos4 = posx(348.37, -107.61, 31.35, 167.5, 179.16, 167.52)
+# pallet_2_pos
+pallet_2_pos1 = posx(454.2, 143.15, 33.35, 162.06, 179.32, 161.93)
+pallet_2_pos2 = posx(454.2, 244.56, 33.35, 162.06, 179.32, 161.93)
+pallet_2_pos3 = posx(351.42, 244.56, 33.35, 161.78, 179.32, 161.65)
+pallet_2_pos4 = posx(351.42, 143.15, 33.35, 162.06, 179.32, 161.93)
+delta = [0, 0, 100, 0, 0, 0]
+direction = 1 # Normal Pallet -> 0: Snake, 1: Zigzag / Rhombus Pallet -> 2: Snake, 3: Zigzag
+row = 3
+column = 3
+stack = 1
+thickness = 0
+point_offset = [0, 0, 0] # Offset for calculated pose
+# Total count
+if direction < 2: # Normal Pallet
+    total_count = row * column * stack
+else: # Rhombus Pallet
+    total_count = (row * column - int(row/2)) * stack
+movej(posj(0.0, 0.0, 90.0, 0.0, 90.0, 0.0),a=30,v=30)
+ungrip()
+# Calculate Pallet Pose (Resulted in base coordinate)
+for pallet_index in range(0,total_count):
+    Pallet_1_pose= get_pattern_point(pallet_1_pos1, pallet_1_pos2, pallet_1_pos3, pallet_1_pos4, pallet_index, direction, row, column, stack, thickness, point_offset)
+    Pallet_2_pose= get_pattern_point(pallet_2_pos1, pallet_2_pos2, pallet_2_pos3, pallet_2_pos4, pallet_index, direction, row, column, stack, thickness, point_offset)
+    Pallet1_app = trans(Pallet_1_pose, delta, DR_BASE, DR_BASE)
+    Pallet2_app = trans(Pallet_2_pose, delta, DR_BASE, DR_BASE)
+    movel(Pallet1_app,ref=DR_BASE, v=500, a=500, mod=DR_MV_MOD_ABS)
+    movel(Pallet_1_pose,ref=DR_BASE, v=50, a=50, mod=DR_MV_MOD_ABS)
+    grip()
+    movel(Pallet1_app,ref=DR_BASE, v=50, a=50, mod=DR_MV_MOD_ABS)
+    movel(Pallet2_app,ref=DR_BASE, v=500, a=500, mod=DR_MV_MOD_ABS)
+    movel(Pallet_2_pose,ref=DR_BASE, v=50, a=50, mod=DR_MV_MOD_ABS)
+    ungrip()
+    movel(Pallet2_app,ref=DR_BASE, v=50, a=50, mod=DR_MV_MOD_ABS)
+for pallet_index in range(0,total_count):
+    Pallet_1_pose= get_pattern_point(pallet_1_pos1, pallet_1_pos2, pallet_1_pos3, pallet_1_pos4, pallet_index, direction, row, column, stack, thickness, point_offset)
+    Pallet_2_pose= get_pattern_point(pallet_2_pos1, pallet_2_pos2, pallet_2_pos3, pallet_2_pos4, pallet_index, direction, row, column, stack, thickness, point_offset)
+    Pallet1_app = trans(Pallet_1_pose, delta, DR_BASE, DR_BASE)
+    Pallet2_app = trans(Pallet_2_pose, delta, DR_BASE, DR_BASE)
+    movel(Pallet2_app,ref=DR_BASE, v=500, a=500, mod=DR_MV_MOD_ABS)
+    movel(Pallet_2_pose,ref=DR_BASE, v=50, a=50, mod=DR_MV_MOD_ABS)
+    grip()
+    movel(Pallet2_app,ref=DR_BASE, v=50, a=50, mod=DR_MV_MOD_ABS)
+    movel(Pallet1_app,ref=DR_BASE, v=500, a=500, mod=DR_MV_MOD_ABS)
+    movel(Pallet_1_pose,ref=DR_BASE, v=50, a=50, mod=DR_MV_MOD_ABS)
+    ungrip()
+    movel(Pallet1_app,ref=DR_BASE, v=50, a=50, mod=DR_MV_MOD_ABS)

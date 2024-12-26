@@ -1,0 +1,43 @@
+def grip():
+    set_digital_output(1, ON)
+    set_digital_output(2, OFF)
+    wait_digital_input(1, ON)
+def ungrip():
+    set_digital_output(2, ON)
+    set_digital_output(1, OFF)
+    wait_digital_input(2, ON)
+def close():
+    set_digital_output(1, ON)
+    set_digital_output(2, OFF)
+delta1 = [0.0, 0.0, 50.0, 0.0, 0.0, 0.0]
+delta2 = [0.0, 300.0, 0.0, 0.0, 0.0, 0.0]
+init_pos = posj(0.0, 0.0, 90.0, 0.0, 90.0, 0.0)
+pick_pos = posx(422.61, -154.17, 42.55, 90.0, -180.0, 90.0)
+place_pos = posx(427.62, 143.29, 42.55, 90.0, 180,90)
+pick_app = trans(pick_pos, delta1, DR_BASE, DR_BASE)
+place_app = trans(place_pos, delta1, DR_BASE, DR_BASE)
+movej(init_pos, a = 50, v = 50) # go init pos
+ungrip()
+movel(pick_app, a = 50, v = 50, mod = DR_MV_MOD_ABS, ref = DR_BASE)
+movel(pick_pos, a = 50, v = 50, mod = DR_MV_MOD_ABS, ref = DR_BASE)
+grip()
+movel(pick_app, a = 50, v = 50, mod = DR_MV_MOD_ABS, ref = DR_BASE)
+movel(place_app, a = 50, v = 50, mod = DR_MV_MOD_ABS, ref = DR_BASE)
+task_compliance_ctrl(stx=[3000,3000,3000,2000,2000,2000])
+fd = [0,0,-30,0,0,0]
+fctrl_dir = [0,0,1,0,0,0]
+fd_1 = [0,0,-30,0,0,30]
+fctrl_dir_1 = [0,0,1,0,0,1]
+set_desired_force(fd, dir = fctrl_dir, mod = DR_MV_MOD_REL)
+while True:
+    fck = check_force_condition(DR_AXIS_Z, min = 15, ref = DR_BASE)
+    if fck == True:
+        set_desired_force(fd_1, dir = fctrl_dir_1, mod = DR_MV_MOD_REL)
+        if check_position_condition(DR_AXIS_Z, min=0, max=52, ref=DR_BASE, mod = DR_MV_MOD_ABS) :
+            release_force(time =0)
+            release_compliance_ctrl()
+            wait(1)
+            break
+ungrip()
+movel(place_app, a = 50, v = 50, ref=DR_BASE, mod = DR_MV_MOD_ABS)
+tp_popup("Finish")
