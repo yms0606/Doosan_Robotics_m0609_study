@@ -6,8 +6,6 @@ This project explores the control capabilities of the M0609 collaborative robot 
 
 ## ✨ Key Features
 
-- Conducted real-world-like simulations with tasks such as gear assembly, material handling, Jenga, and stacking cups.
-
 **Optimization**
 
 - Implemented algorithms to estimate paths while analyzing singularity locations caused by joint angles and devising strategies to avoid them.
