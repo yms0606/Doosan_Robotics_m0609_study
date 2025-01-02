@@ -18,12 +18,18 @@ This project explores the control capabilities of the M0609 collaborative robot 
 
 ## 🎥 Demo Video
 
-**pattern pallet**
+**stacking cups (with ROS2)**
+
+https://github.com/user-attachments/assets/8d8b30ac-56b6-478d-865b-aac97e487fec
+
+<br>
+
+**pattern pallet (with DRL)**
 
 https://github.com/user-attachments/assets/463ea415-badf-4a71-8427-b23b17c9579a
 
 <br>
 
-**gear assembling (With DRL)**
+**gear assembling (with DRL)**
 
 https://github.com/user-attachments/assets/2957ad32-46ed-404c-880a-b73616b3771d
